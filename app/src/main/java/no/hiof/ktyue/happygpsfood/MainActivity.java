@@ -5,6 +5,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -14,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity  {
 
     private NavController navController;
+    public DrawerLayout drawerLayout;
 
 
     @Override
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity  {
 
         setupBottomNavigationMenu();
 
+        //setupBottomNavigationBack();
+
     }
 
     private void setupBottomNavigationMenu() {
@@ -30,7 +34,7 @@ public class MainActivity extends AppCompatActivity  {
 
         navController = Navigation.findNavController(this, R.id.navHostFragment);
 
-        NavigationUI.setupActionBarWithNavController(this, navController);
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity  {
                         navController.navigate(R.id.nearbyRestaurantFragment);
                         break;
                     case R.id.add_destination:
-                        navController.navigate(R.id.add_destination);
+                        navController.navigate(R.id.addRestaurantFragment);
                         break;
                     case R.id.favorites_destination:
                         navController.navigate(R.id.favoritesFragment);
@@ -55,5 +59,12 @@ public class MainActivity extends AppCompatActivity  {
                 return false;
             }
         });
+    }
+
+    // Navigation back one step up
+    @Override
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(Navigation.findNavController(this, R.id.navHostFragment), drawerLayout);
+
     }
 }

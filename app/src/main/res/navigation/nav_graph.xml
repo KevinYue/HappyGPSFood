@@ -8,7 +8,8 @@
         android:id="@+id/favoritesFragment"
         android:name="no.hiof.ktyue.happygpsfood.FavoritesFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_favorites" />
+        tools:layout="@layout/fragment_favorites"
+        app:labelVisibilityMode="labeled" />
     <fragment
         android:id="@+id/homeFragment"
         android:name="no.hiof.ktyue.happygpsfood.HomeFragment"
