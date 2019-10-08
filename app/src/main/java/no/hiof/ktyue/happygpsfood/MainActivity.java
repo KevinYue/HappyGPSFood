@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class MainActivity extends AppCompatActivity  {
 
     private NavController navController;
-    public DrawerLayout drawerLayout;
+    DrawerLayout drawerLayout;
 
 
     @Override
@@ -25,14 +25,15 @@ public class MainActivity extends AppCompatActivity  {
 
         setupBottomNavigationMenu();
 
-        //setupBottomNavigationBack();
-
     }
 
     private void setupBottomNavigationMenu() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
         navController = Navigation.findNavController(this, R.id.navHostFragment);
+
+        //bottomNavigationView.getLabelVisibilityMode();
+        //bottomNavigationView.setLabelVisibilityMode(LabelVisibilityMode.LABEL_VISIBILITY_SELECTED);
 
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
@@ -60,6 +61,8 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
     }
+
+
 
     // Navigation back one step up
     @Override

@@ -5,4 +5,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>
     <string name="add_restaurant">Add Restaurant</string>
+    <string name="nearby">Nearby</string>
+    <string name="add">Add</string>
+    <string name="favorites">Favorites</string>
+    <string name="search">Search</string>
+    <string name="google_map_key">AIzaSyCbfnkIpJSSga_W8s6KZmcDtZi6fNgVHFc</string>
 </resources>
